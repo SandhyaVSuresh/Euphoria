@@ -38,9 +38,9 @@ const NewBodyDiv = styled.div`
 const NewCardsDiv = styled.div`
   display: flex;
   flex-wrap: wrap; 
-  justify-content: space-around;
+  justify-content: center;
   gap: 2rem;
-  @media (max-width: 375px) {
+  @media (max-width: 400px) {
     gap: 10px;
   }
 `;
@@ -51,7 +51,7 @@ const NewCardDiv = styled.div`
     width: 45%; 
     padding-top: 10px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 400px) {
     width: 45%; 
     height: auto;
     padding-top: 10px;
@@ -59,9 +59,9 @@ const NewCardDiv = styled.div`
 `;
 
 const CardImg = styled.img`
-  width: 50%; 
-  height: 60%; 
-  @media (max-width: 375px) {
+  width: 100%; 
+  height: 80%; 
+  @media (max-width: 400px) {
     width: 100%;
     height: 80%;
   }
@@ -72,7 +72,7 @@ const CardTitleH3 = styled.h3`
   color: rgba(60, 66, 66, 1);
   font-weight: 500;
   font-size: 1rem;
-  @media (max-width: 375px) {
+  @media (max-width: 400px) {
     font-size: 0.8rem;
   }
 `;
@@ -85,7 +85,7 @@ const CardLink = styled(Link)`
   color: #7f7f7f;
   font-size: 0.9rem;
   text-decoration: none;
-  @media (max-width: 375px) {
+  @media (max-width: 400px) {
     font-size: 0.6rem;
   }
 `;

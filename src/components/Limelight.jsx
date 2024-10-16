@@ -37,7 +37,7 @@ const NewCardsDiv = styled.div`
   flex-wrap: wrap; 
   justify-content: space-around;
   gap: 2rem;
-  @media (max-width: 375px) {
+  @media (max-width: 400px) {
     gap: 10px;
   }
 `;
@@ -48,16 +48,16 @@ const NewCardDiv = styled.div`
     width: 45%; 
     padding-top: 10px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 400px) {
     width: 45%; 
     height: auto;
     padding-top: 10px;
   }
 `;
 const CardImg = styled.img`
-  width: 50%; 
-  height: 60%; 
-  @media (max-width: 375px) {
+  width: 100%; 
+  height: 90%; 
+  @media (max-width: 400px) {
     width: 100%;
     height: 80%;
   }
@@ -67,12 +67,14 @@ const HeartImg = styled.img`
   padding: 1.5% 2%;
   border-radius: 50%;
   position: absolute;
-  top: 10px;
+  top: 30px;
   right: 10px;
   width: 19px;
   height: 20px;
   cursor: pointer;
-  @media(max-width:375px){
+  @media(max-width:400px){
+  
+  padding: 1%;
   top: 15px;
   width: 13px;
   height: 13px;
@@ -83,7 +85,7 @@ const CardTitleH3 = styled.h3`
   color: rgba(60, 66, 66, 1);
   font-weight: 500;
   font-size: 1rem;
-  @media(max-width:375px){
+  @media(max-width:400px){
   font-size: .7rem;
   }
 `;
@@ -94,7 +96,7 @@ const NewCardTextDiv = styled.div`
 `;
 const CardLink = styled.p`
   color: #7f7f7f;
-  font-size: 0.9rem;@media(max-width:375px){
+  font-size: 0.9rem;@media(max-width:400px){
   font-size: .7rem;
   }
 `;
@@ -104,7 +106,7 @@ const Pricep = styled.p`
   padding: 10px 10px;
   font-weight: 550;
   color: #3c4242;
-  border-radius: 8px;@media(max-width:375px){
+  border-radius: 8px;@media(max-width:400px){
   font-size: .6rem;
   }
 `;
