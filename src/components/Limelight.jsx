@@ -64,17 +64,18 @@ const CardImg = styled.img`
 `;
 const HeartImg = styled.img`
   background: #fff;
-  padding: 1.5% 2%;
+  padding: 2% 2%;
   border-radius: 50%;
   position: absolute;
-  top: 30px;
+  top: 45px;
   right: 10px;
   width: 19px;
   height: 20px;
   cursor: pointer;
+   @media(max-width:700px){
+  top: 20px;
+  }
   @media(max-width:400px){
-  
-  padding: 1%;
   top: 15px;
   width: 13px;
   height: 13px;
