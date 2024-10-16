@@ -9,6 +9,7 @@ const Card = styled.section`
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  margin-bottom:40px;
   @media (max-width: 900px) {
     flex-wrap: wrap;
   }
@@ -40,6 +41,9 @@ const Card1 = styled.div`
   @media (max-width: 500px) {
     width: 90%;
   }
+  @media (max-width: 375px) {
+    width: 100%;
+  }
 `;
 const Card2 = styled.div`
   display: flex;
@@ -66,6 +70,9 @@ const Card2 = styled.div`
   }
   @media (max-width: 500px) {
     width: 90%;
+  }
+  @media (max-width: 375px) {
+    width: 100%;
   }
 `;
 const CardTextP = styled.p`

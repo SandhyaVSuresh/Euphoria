@@ -12,6 +12,7 @@ import img8 from "../assets/img-11.jpg";
 
 const Container = styled.div`
   padding: 3% 7%;
+  margin: 30px 0;
 `;
 const NewHeadDiv = styled.div`
   padding-bottom: 2%;
@@ -31,32 +32,41 @@ const NewTitleH2 = styled.h2`
 const NewBodyDiv = styled.div`
   display: flex;
   justify-content: space-between;
+  height:100%;
 `;
 
 const NewCardsDiv = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
   justify-content: space-around;
+  gap: 2rem;
   @media (max-width: 375px) {
     gap: 10px;
   }
 `;
 const NewCardDiv = styled.div`
   padding-top: 3%;
+  width: 250px;
+  @media (max-width: 768px) {
+    width: 45%; 
+    padding-top: 10px;
+  }
   @media (max-width: 375px) {
-    width: 45%;
-    height: 35%;
+    width: 45%; 
+    height: auto;
     padding-top: 10px;
   }
 `;
+
 const CardImg = styled.img`
-  width: 250px;
-  height: 340px;
+  width: 50%; 
+  height: 60%; 
   @media (max-width: 375px) {
     width: 100%;
     height: 80%;
   }
 `;
+
 const CardTitleH3 = styled.h3`
   padding-top: 3%;
   color: rgba(60, 66, 66, 1);
