@@ -6,23 +6,47 @@ import img4 from "../../assets/linkedin.svg";
 import img5 from "../../assets/Group.png";
 import img6 from "../../assets/PlayStoreImage.svg";
 
-const waveAnimation = keyframes`
+const waveAnimationSmall = keyframes`
   0% {
-    background-position-x: 0;
+    background-position-y: 0;
   }
   100% {
-    background-position-x: 1500px; 
+    background-position-y: 750px; 
   }
 `;
 
+const waveAnimationMedium = keyframes`
+  0% {
+    background-position-y: 0;
+  }
+  100% {
+    background-position-y: 580px; 
+  }
+`;
+
+const waveAnimationLarge = keyframes`
+  0% {
+    background-position-y: 0;
+  }
+  100% {
+    background-position-y: 450px; 
+  }
+`;
+
+
 const Container = styled.div`
-  background: linear-gradient(500deg, #3c4242 50%, #002f4b 80%);
+  background: linear-gradient(400deg, #3c4242 10%, #002f4b 80%);
   padding: 3% 7%;
   color: #fff;
-  background-size: 200% 100%;
-  animation: ${waveAnimation} 5s ease-in-out infinite;
+  background-size: 150% 100%;
+    animation: ${waveAnimationMedium} 3s ease-in-out infinite;
+
   @media (max-width: 400px) {
-    animation: ${waveAnimation} 8s ease-in-out infinite;
+    animation: ${waveAnimationSmall} 3s ease-in-out infinite;
+  }
+
+  @media (min-width: 768px) {
+    animation: ${waveAnimationLarge} 3s ease-in-out infinite;
   }
 `;
 const TopDiv = styled.div`
