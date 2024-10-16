@@ -2,7 +2,7 @@ import styled from "styled-components";
 import img3 from "../assets/levis.jpg";
 import img1 from "../assets/nike.jpg";
 import img5 from "../assets/puma.jpg";
-import img4 from "../assets/uspa.jpg";
+import img4 from "../assets/USPA.jpg";
 import img2 from "../assets/image 18.png";
 
 const Container = styled.div`
