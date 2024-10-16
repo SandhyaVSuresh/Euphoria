@@ -10,6 +10,9 @@ const Container = styled.div`
   padding: 3% 7%;
   height:70vh;
   margin-bottom:2rem;
+  @media(max-width:700px){
+  height:80vh;
+  }
   @media(max-width:400px){
   height:90vh;
   }
@@ -36,7 +39,10 @@ const NewTitleH2 = styled.h2`
 const NewCardDiv = styled.div`
   margin: 2%;
   text-align: center;
-  height:60vh;
+  height:70vh;
+  @media(max-width:700px){
+  height:70vh;
+  }
   @media(max-width:400px){
   height:85vh;
   }
@@ -45,6 +51,10 @@ const NewCardDiv = styled.div`
 const CardImg = styled.img`
   width: 100%;
   height: 50vh;
+  @media(max-width:700px){
+  height:55vh;
+  width:80%;
+  }
   @media(max-width:400px){
   width:90%;
   height:70vh;
