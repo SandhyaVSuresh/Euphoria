@@ -32,7 +32,6 @@ const NewBodyDiv = styled.div`
 `;
 
 const NewCardsDiv = styled.div`
-  position: relative;
   display: flex;
   flex-wrap: wrap; 
   justify-content: space-around;
@@ -42,6 +41,7 @@ const NewCardsDiv = styled.div`
   }
 `;
 const NewCardDiv = styled.div`
+  position: relative;
   padding-top: 3%;
   width: 250px;
   @media (max-width: 768px) {
