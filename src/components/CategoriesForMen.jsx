@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import arrowRight from "../assets/ExploreArrow.png";
 import img1 from "../assets/img-5.jpg";
 import img2 from "../assets/img-6.jpg";
@@ -34,50 +34,67 @@ const NewBodyDiv = styled.div`
 `;
 
 const NewCardsDiv = styled.div`
-display:flex;
-flex-wrap:wrap;
-justify-content:space-around;
-// padding-top:5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  @media (max-width: 375px) {
+    gap: 10px;
+  }
 `;
 const NewCardDiv = styled.div`
-padding-top:3%;
+  padding-top: 3%;
+  @media (max-width: 375px) {
+    width: 45%;
+    height: 35%;
+    padding-top: 10px;
+  }
 `;
 const CardImg = styled.img`
   width: 250px;
   height: 340px;
+  @media (max-width: 375px) {
+    width: 100%;
+    height: 80%;
+  }
 `;
 const CardTitleH3 = styled.h3`
   padding-top: 3%;
   color: rgba(60, 66, 66, 1);
   font-weight: 500;
   font-size: 1rem;
+  @media (max-width: 375px) {
+    font-size: 0.8rem;
+  }
 `;
 const NewCardLinkDiv = styled.div`
-display:flex;
-justify-content:space-between;
-align-items:center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 const CardLink = styled(Link)`
-color: #7F7F7F;
-font-size:.9rem;
-text-decoration:none;
+  color: #7f7f7f;
+  font-size: 0.9rem;
+  text-decoration: none;
+  @media (max-width: 375px) {
+    font-size: 0.6rem;
+  }
 `;
 const ArrowRightImg = styled.img`
   cursor: pointer;
-  width:9%;
-  height:4%;
+  width: 9%;
+  height: 4%;
 `;
 
 const items = [
-  {src:img1, title:"Shirts"},
-  {src:img2, title:"Printed T-Shirt"},
-  {src:img3, title:"Plain T-Shirt"},
-  {src:img4, title:"Polo T-Shirt"},
-  {src:img5, title:"Hoodies & Sweatshirt"},
-  {src:img6, title:"jeans"},
-  {src:img7, title:"Activewear"},
-  {src:img8, title:"Boxers"},
-]
+  { src: img1, title: "Shirts" },
+  { src: img2, title: "Printed T-Shirt" },
+  { src: img3, title: "Plain T-Shirt" },
+  { src: img4, title: "Polo T-Shirt" },
+  { src: img5, title: "Hoodies & Sweatshirt" },
+  { src: img6, title: "jeans" },
+  { src: img7, title: "Activewear" },
+  { src: img8, title: "Boxers" },
+];
 
 function CategoriesForMen() {
   return (
@@ -88,7 +105,7 @@ function CategoriesForMen() {
       </NewHeadDiv>
       <NewBodyDiv>
         <NewCardsDiv>
-          {items.map((item,index)=>(
+          {items.map((item, index) => (
             <NewCardDiv key={index}>
               <CardImg src={item.src} />
               <CardTitleH3>{item.title}</CardTitleH3>

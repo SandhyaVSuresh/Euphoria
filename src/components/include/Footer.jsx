@@ -1,4 +1,4 @@
-import styled,{keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 import img1 from "../../assets/facebook.svg";
 import img2 from "../../assets/instagram.svg";
 import img3 from "../../assets/twitter.svg";
@@ -19,10 +19,10 @@ const Container = styled.div`
   background: linear-gradient(500deg, #3c4242 50%, #002f4b 80%);
   padding: 3% 7%;
   color: #fff;
-  background-size: 200% 100%; 
+  background-size: 200% 100%;
   animation: ${waveAnimation} 5s ease-in-out infinite;
-  @media(max-width:400px){
-  animation: ${waveAnimation} 8s ease-in-out infinite;
+  @media (max-width: 400px) {
+    animation: ${waveAnimation} 8s ease-in-out infinite;
   }
 `;
 const TopDiv = styled.div`
@@ -85,37 +85,44 @@ const Apph4 = styled.h4`
   font-size: 1.5rem;
   padding-bottom: 20px;
   @media (max-width: 800px) {
-  border-right: 1px solid rgb(255, 255, 255, 0.1);
+    border-right: 1px solid rgb(255, 255, 255, 0.1);
   }
-  @media(max-width:400px){
-// display:none;
-font-size:1rem;
-}
+  @media (max-width: 400px) {
+    font-size: 1rem;
+  }
 `;
 const Appsdiv = styled.div`
-  padding-left: 2%;
   display: flex;
   gap: 2rem;
+  @media (max-width: 400px) {
+    gap: 0.5rem;
+  }
 `;
 const AppDiv = styled.div`
   display: flex;
+  padding: 2%;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-   @media (max-width: 800px) {
-  border-right: 1px solid rgb(255, 255, 255, 0.1);
+  gap: 0.6rem;
+  @media (max-width: 800px) {
+    border-right: 1px solid rgb(255, 255, 255, 0.1);
   }
 `;
 const AppImg = styled.img`
-@media(max-width:400px){
-display:none;
-}
+  @media (max-width: 400px) {
+    width: 20px;
+  }
 `;
 const Textp = styled.p`
   font-size: 0.7rem;
+  @media (max-width: 400px) {
+    font-size: 0.5rem;
+  }
 `;
 const AppNamep = styled.span`
-  font-size: 1.2rem;
+  font-size: 1.2rem @media (max-width: 400px) {
+    font-size: 0.9rem;
+  }
 `;
 function Footer() {
   return (

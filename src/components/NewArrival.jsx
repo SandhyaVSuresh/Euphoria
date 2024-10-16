@@ -9,6 +9,10 @@ import image4 from '../assets/img-4.jpg';
 const Container = styled.div`
   padding: 3% 7%;
   height:70vh;
+  margin-bottom:2rem;
+  @media(max-width:400px){
+  height:90vh;
+  }
 `;
 
 const NewHeadDiv = styled.div`
@@ -33,12 +37,21 @@ const NewCardDiv = styled.div`
   margin: 2%;
   text-align: center;
   height:60vh;
-//   padding:2%;
+  @media(max-width:400px){
+  height:85vh;
+  }
 `;
 
 const CardImg = styled.img`
   width: 100%;
   height: 50vh;
+  @media(max-width:400px){
+  width:90%;
+  height:70vh;
+  }
+  @media(max-width:350px){
+  width:100%;
+  }
 `;
 
 const CardTitleH3 = styled.h3`
