@@ -26,10 +26,6 @@ const SlideText = styled.div`
   font-size: 24px;
   font-weight: bold;
   border-radius: 5px;
-  @media (max-width: 400px) {
-  margin:auto;
-  text-align:center;
-  }
 `;
 
 const Slideh5 = styled.h5`
