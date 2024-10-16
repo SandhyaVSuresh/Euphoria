@@ -47,7 +47,7 @@ const BrandImg = styled.img`
   margin: 0 3%;
   padding: 1%;
   border-radius: 5px;
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     margin: 1%;
     width:20vw;
   }

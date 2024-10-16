@@ -34,8 +34,9 @@ const HeadH2 = styled.h2`
   font-size: 2rem;
   padding-bottom: 1.5rem;
   @media (max-width: 600px) {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
+  
   @media (max-width: 400px) {
     font-size: 0.9rem;
     padding-bottom: 1rem;
@@ -60,6 +61,9 @@ const ShopButton = styled.button`
   border: none;
   border-radius: 5px;
   font-weight: bold;
+    @media (max-width: 600px) {
+    font-size: .7rem;
+  }
   @media (max-width: 400px) {
     font-weight: 600;
     font-size: 0.5rem;
