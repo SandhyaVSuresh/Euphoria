@@ -21,7 +21,7 @@ const SlideEffect = styled.div`
 
 const SlideText = styled.div`
   line-height: 4rem;
-  padding-left: 5%;
+  margin: 3%;
   color: white;
   font-size: 24px;
   font-weight: bold;
@@ -31,6 +31,7 @@ const SlideText = styled.div`
 const Slideh5 = styled.h5`
   color: white;
   @media (max-width: 800px) {
+    width: fit-content;
     background: rgba(178, 178, 178, 0.5);
     padding-left: 10px;
     margin-bottom: 10px;
@@ -46,6 +47,7 @@ const Slideh1 = styled.h1`
   color: white;
   @media (max-width: 800px) {
     background: rgba(178, 178, 178, 0.5);
+    width: 280px;
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 30px;
@@ -59,6 +61,7 @@ const Slideh1 = styled.h1`
 const Slidep = styled.p`
   font-weight: 500;
   @media (max-width: 800px) {
+    width: fit-content;
     background: rgba(178, 178, 178, 0.5);
     padding-left: 10px;
     margin-bottom: 10px;
@@ -112,18 +115,17 @@ function Spotlight() {
   ];
   return (
     <Slide>
-      {items.map((item,index)=>(
+      {items.map((item, index) => (
         <SlideContainer key={index}>
-        <SlideEffect style={{ backgroundImage: `url(${item.src})` }}>
-          <SlideText>
-            <Slideh5>{item.heading}</Slideh5>
-            <Slideh1>{item.mainHead}
-            </Slideh1>
-            <Slidep>{item.para}</Slidep>
-            <Slidebutton>{item.button}</Slidebutton>
-          </SlideText>
-        </SlideEffect>
-      </SlideContainer>
+          <SlideEffect style={{ backgroundImage: `url(${item.src})` }}>
+            <SlideText>
+              <Slideh5>{item.heading}</Slideh5>
+              <Slideh1>{item.mainHead}</Slideh1>
+              <Slidep>{item.para}</Slidep>
+              <Slidebutton>{item.button}</Slidebutton>
+            </SlideText>
+          </SlideEffect>
+        </SlideContainer>
       ))}
     </Slide>
   );
