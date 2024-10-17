@@ -1,20 +1,20 @@
-import styled from 'styled-components';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-import image1 from '../assets/img-1.jpg';
-import image2 from '../assets/img-2.jpg';
-import image3 from '../assets/img-3.jpg';
-import image4 from '../assets/img-4.jpg';
+import styled from "styled-components";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import image1 from "../assets/img-1.jpg";
+import image2 from "../assets/img-2.jpg";
+import image3 from "../assets/img-3.jpg";
+import image4 from "../assets/img-4.jpg";
 
 const Container = styled.div`
   padding: 3% 7%;
-  height:70vh;
-  margin-bottom:2rem;
-  @media(max-width:700px){
-  height:80vh;
+  height: 70vh;
+  margin-bottom: 2rem;
+  @media (max-width: 700px) {
+    height: 80vh;
   }
-  @media(max-width:400px){
-  height:90vh;
+  @media (max-width: 400px) {
+    height: 90vh;
   }
 `;
 
@@ -39,28 +39,28 @@ const NewTitleH2 = styled.h2`
 const NewCardDiv = styled.div`
   margin: 2%;
   text-align: center;
-  height:70vh;
-  @media(max-width:700px){
-  height:70vh;
+  height: 70vh;
+  @media (max-width: 700px) {
+    height: 70vh;
   }
-  @media(max-width:400px){
-  height:85vh;
+  @media (max-width: 400px) {
+    height: 85vh;
   }
 `;
 
 const CardImg = styled.img`
   width: 100%;
   height: 50vh;
-  @media(max-width:700px){
-  height:55vh;
-  width:80%;
+  @media (max-width: 700px) {
+    height: 55vh;
+    width: 80%;
   }
-  @media(max-width:400px){
-  width:90%;
-  height:70vh;
+  @media (max-width: 400px) {
+    width: 90%;
+    height: 70vh;
   }
-  @media(max-width:350px){
-  width:100%;
+  @media (max-width: 350px) {
+    width: 100%;
   }
 `;
 
@@ -72,30 +72,30 @@ const CardTitleH3 = styled.h3`
 `;
 
 const items = [
-  { src: image1, title: 'Knitted Joggers' },
-  { src: image2, title: 'Urban Shirts' },
-  { src: image3, title: 'Full Sleeve' },
-  { src: image4, title: 'Active T-Shirts' }
+  { src: image1, title: "Knitted Joggers" },
+  { src: image2, title: "Urban Shirts" },
+  { src: image3, title: "Full Sleeve" },
+  { src: image4, title: "Active T-Shirts" },
 ];
 
 // Carousel responsive settings
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 1024 },
-    items: 4
+    items: 4,
   },
   desktop: {
     breakpoint: { max: 1024, min: 768 },
-    items: 3
+    items: 3,
   },
   tablet: {
     breakpoint: { max: 768, min: 464 },
-    items: 2
+    items: 2,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1
-  }
+    items: 1,
+  },
 };
 
 function NewArrival() {
@@ -106,7 +106,7 @@ function NewArrival() {
         <NewTitleH2>New Arrival</NewTitleH2>
       </NewHeadDiv>
       <Carousel
-      showDots={true}    
+        showDots={true}
         responsive={responsive}
         infinite={true}
         autoPlay={true}

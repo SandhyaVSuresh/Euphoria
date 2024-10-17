@@ -32,42 +32,42 @@ const Slideh5 = styled.h5`
   color: white;
   @media (max-width: 800px) {
     background: rgba(178, 178, 178, 0.5);
-    padding-left:10px;
-    margin-bottom:10px;
-    border-radius:30px;
-    padding-right:10px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    padding-right: 10px;
   }
-    @media (max-width: 400px) {
-  font-size: 1rem;
-}
+  @media (max-width: 400px) {
+    font-size: 1rem;
+  }
 `;
 
 const Slideh1 = styled.h1`
   color: white;
   @media (max-width: 800px) {
     background: rgba(178, 178, 178, 0.5);
-    padding-left:10px;
-    padding-right:10px;
-    border-radius:30px;
-    margin-bottom:10px;
-  } 
-    @media (max-width: 400px) {
-  font-size: 2.5rem;
-}
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 30px;
+    margin-bottom: 10px;
+  }
+  @media (max-width: 400px) {
+    font-size: 2.5rem;
+  }
 `;
 
 const Slidep = styled.p`
   font-weight: 500;
   @media (max-width: 800px) {
     background: rgba(178, 178, 178, 0.5);
-    padding-left:10px;
-    margin-bottom:10px;
-    padding-right:10px;
-    border-radius:30px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    padding-right: 10px;
+    border-radius: 30px;
   }
-     @media (max-width: 400px) {
-  font-size: 1rem;
-}
+  @media (max-width: 400px) {
+    font-size: 1rem;
+  }
 `;
 
 const Slidebutton = styled.button`
@@ -79,56 +79,52 @@ const Slidebutton = styled.button`
   border: none;
   width: 50%;
   @media (max-width: 400px) {
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 3% 4%;
-  width: 40%;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 3% 4%;
+    width: 40%;
   }
 `;
 
 function Spotlight() {
-  const images = [Bg1, Bg2, Bg3];
+  const items = [
+    {
+      src: Bg1,
+      heading: "T-shirt / Tops",
+      mainHead: "Summer Value Pack",
+      para: "cool / colorful / comfy",
+      button: "Shop Now",
+    },
+    {
+      src: Bg2,
+      heading: "T-shirt / Tops",
+      mainHead: "Summer Value Pack",
+      para: "cool / colorful / comfy",
+      button: "Shop Now",
+    },
+    {
+      src: Bg3,
+      heading: "T-shirt / Tops",
+      mainHead: "Summer Value Pack",
+      para: "cool / colorful / comfy",
+      button: "Shop Now",
+    },
+  ];
   return (
     <Slide>
-      <SlideContainer>
-        <SlideEffect style={{ backgroundImage: `url(${images[0]})` }}>
+      {items.map((item,index)=>(
+        <SlideContainer key={index}>
+        <SlideEffect style={{ backgroundImage: `url(${item.src})` }}>
           <SlideText>
-            <Slideh5>T-shirt / Tops</Slideh5>
-            <Slideh1>
-              Summer <br />
-              Value Pack
+            <Slideh5>{item.heading}</Slideh5>
+            <Slideh1>{item.mainHead}
             </Slideh1>
-            <Slidep>cool / colorful / comfy</Slidep>
-            <Slidebutton>Shop Now</Slidebutton>
+            <Slidep>{item.para}</Slidep>
+            <Slidebutton>{item.button}</Slidebutton>
           </SlideText>
         </SlideEffect>
       </SlideContainer>
-      <SlideContainer>
-        <SlideEffect style={{ backgroundImage: `url(${images[1]})` }}>
-          <SlideText>
-            <Slideh5>T-shirt / Tops</Slideh5>
-            <Slideh1>
-              Summer <br />
-              Value Pack
-            </Slideh1>
-            <Slidep>cool / colorful / comfy</Slidep>
-            <Slidebutton>Shop Now</Slidebutton>
-          </SlideText>
-        </SlideEffect>
-      </SlideContainer>
-      <SlideContainer>
-        <SlideEffect style={{ backgroundImage: `url(${images[2]})` }}>
-          <SlideText>
-            <Slideh5>T-shirt / Tops</Slideh5>
-            <Slideh1>
-              Summer <br />
-              Value Pack
-            </Slideh1>
-            <Slidep>cool / colorful / comfy</Slidep>
-            <Slidebutton>Shop Now</Slidebutton>
-          </SlideText>
-        </SlideEffect>
-      </SlideContainer>
+      ))}
     </Slide>
   );
 }
