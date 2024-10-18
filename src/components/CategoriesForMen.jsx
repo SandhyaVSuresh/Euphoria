@@ -31,7 +31,8 @@ const NewTitleH2 = styled.h2`
 `;
 const NewBodyDiv = styled.div`
   display: flex;
-  justify-content: space-between;
+  width:100%
+  justify-content: center;
   height:100%;
 `;
 
@@ -40,6 +41,9 @@ const NewCardsDiv = styled.div`
   flex-wrap: wrap; 
   justify-content: center;
   gap: 2rem;
+  @media(max-width:900px){
+  justify-content: space-around;
+  }
   @media (max-width: 400px) {
     gap: 10px;
   }

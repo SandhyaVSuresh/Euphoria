@@ -12,6 +12,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align:center;
   background: linear-gradient(500deg, #3c4242 50%, #002f4b 80%);
   border-radius: 10px;
   @media (max-width: 700px) {
@@ -22,10 +23,16 @@ const Container = styled.div`
 const Headh1 = styled.h1`
   padding-bottom: 1%;
   color: white;
+  @media(max-width:400px){
+  font-size:1.5rem;
+  }
 `;
 const ParaText = styled.p`
   padding-bottom: 2%;
   color: white;
+  @media(max-width:400px){
+  font-size:.9rem;
+  }
 `;
 const SpanTag = styled.span`
   color: yellow;
@@ -36,6 +43,7 @@ const BrandImgDiv = styled.div`
   justify-content: space-around;
   width: 100%;
   @media (max-width: 800px) {
+  justify-content: center;
     flex-wrap: wrap;
     width: 80%;
   }
@@ -53,6 +61,10 @@ const BrandImg = styled.img`
   }
   @media (max-width: 500px) {
     width: 20vw;
+  }
+  @media(max-width:400px){
+    width: 18vw;
+  height: 7vh;
   }
 `;
 function BrandDeal() {

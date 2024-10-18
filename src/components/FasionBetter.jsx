@@ -1,18 +1,23 @@
 import styled from "styled-components";
-import bg4 from "../assets/bg-4.jpg";
-import bg5 from "../assets/bg-5.jpg";
+import bg4 from "../assets/better1.png";
+import bg5 from "../assets/better2.png";
 
 const Container = styled.div`
   padding: 3% 7%;
   display: flex;
+  @media (max-width: 550px) {
+    flex-direction: column;
+  }
 `;
 const LeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-image: url(${bg4});
+  background-size: cover;
+  border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  width: 90%;
+  width: 90.1%;
   height: 101vh;
   overflow: hidden;
   color: #fff;
@@ -20,9 +25,18 @@ const LeftContainer = styled.div`
   @media (max-width: 600px) {
     height: 70vh;
   }
-  @media (max-width: 400px) {
-    height: 60vh;
+  @media (max-width: 550px) {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0;
+    height: 100vh;
   }
+  @media (max-width: 400px) {
+    height: 80vh;
+  }
+    @media(max-width: 350px){
+    height:70vh;
+    }
 `;
 // const LeftImg =styled.img`
 // width:100%;
@@ -36,7 +50,7 @@ const HeadH2 = styled.h2`
   @media (max-width: 600px) {
     font-size: 1.2rem;
   }
-  
+
   @media (max-width: 400px) {
     font-size: 0.9rem;
     padding-bottom: 1rem;
@@ -61,8 +75,8 @@ const ShopButton = styled.button`
   border: none;
   border-radius: 5px;
   font-weight: bold;
-    @media (max-width: 600px) {
-    font-size: .7rem;
+  @media (max-width: 600px) {
+    font-size: 0.7rem;
   }
   @media (max-width: 400px) {
     font-weight: 600;
@@ -79,25 +93,36 @@ const RightContainer = styled.div`
   @media (max-width: 600px) {
     height: 70vh;
   }
-  @media (max-width: 400px) {
-    height: 60vh;
+  @media (max-width: 550px) {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 0;
+    height: 100vh;
   }
+  @media (max-width: 400px) {
+    height: 80vh;
+  }
+    @media(max-width: 350px){
+    height:60vh;
+    }
 `;
 const RightImg = styled.img`
   width: 100%;
   height: 101vh;
   @media (max-width: 600px) {
-    height: 70vh;
+    height: 100vh;
   }
   @media (max-width: 400px) {
-    height: 60vh;
+    height: 80vh;
   }
+    @media(max-width: 350px){
+    height:70vh;
+    }
 `;
 function FasionBetter() {
   return (
     <Container>
       <LeftContainer>
-        {/* <LeftImg src={bg4} /> */}
         <HeadH2>WE MADE YOUR EVERYDAY FASHION BETTER!</HeadH2>
         <ParaP>
           In our journey to improve everyday fashion, euphoria presents EVERYDAY

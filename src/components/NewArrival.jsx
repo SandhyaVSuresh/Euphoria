@@ -56,7 +56,7 @@ const CardImg = styled.img`
     width: 80%;
   }
   @media (max-width: 400px) {
-    width: 90%;
+    width: 100%;
     height: 70vh;
   }
   @media (max-width: 350px) {

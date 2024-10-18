@@ -37,7 +37,7 @@ const NewCardsDiv = styled.div`
   display: flex;
   flex-wrap: wrap; 
   justify-content: space-around;
-  gap: 2rem;
+  gap:1rem;
   @media (max-width: 400px) {
     gap: 10px;
   }
