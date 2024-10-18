@@ -5,7 +5,7 @@ import bg5 from "../assets/better2.png";
 const Container = styled.div`
   padding: 3% 7%;
   display: flex;
-  @media (max-width: 550px) {
+  @media (max-width: 700px) {
     flex-direction: column;
   }
 `;
@@ -18,35 +18,70 @@ const LeftContainer = styled.div`
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   width: 90.1%;
-  height: 101vh;
+  height: 600px;
   overflow: hidden;
   color: #fff;
   padding: 0 5%;
-  @media (max-width: 600px) {
-    height: 70vh;
+  @media (max-width: 800px) {
+    height: 500px;
   }
-  @media (max-width: 550px) {
+  @media (max-width: 700px) {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 0;
-    height: 100vh;
+    height: 450px;
   }
   @media (max-width: 400px) {
-    height: 80vh;
+    height: 350px;
   }
     @media(max-width: 350px){
-    height:70vh;
+    height:300px;
     }
 `;
-// const LeftImg =styled.img`
-// width:100%;
-// height:90%;
-// // position: relative;
-// z-index:-1;
-// `;
+const RightContainer = styled.div`
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  @media (max-width: 800px) {
+    height: 500px;
+  }
+  @media (max-width: 700px) {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 0;
+    height: 450px;
+  }
+  @media (max-width: 400px) {
+    height: 350px;
+  }
+    @media(max-width: 350px){
+    height:300px;
+    }
+`;
+const RightImg = styled.img`
+  width: 100%;
+  height: 600px;
+  @media (max-width: 800px) {
+    height: 500px;
+  }
+  @media (max-width: 700px) {
+    height: 500px;
+  }
+  @media (max-width: 400px) {
+    height: 350px;
+  }
+    @media(max-width: 350px){
+    height:300px;
+    }
+`;
 const HeadH2 = styled.h2`
   font-size: 2rem;
   padding-bottom: 1.5rem;
+  @media (max-width: 800px) {
+    font-size: 1.4rem;
+  }
   @media (max-width: 600px) {
     font-size: 1.2rem;
   }
@@ -59,6 +94,9 @@ const HeadH2 = styled.h2`
 const ParaP = styled.p`
   font-weight: 200;
   padding-bottom: 1.5rem;
+  @media (max-width: 800px) {
+    font-size: 1rem;
+  }
   @media (max-width: 600px) {
     font-size: 0.8rem;
   }
@@ -83,41 +121,6 @@ const ShopButton = styled.button`
     font-size: 0.5rem;
     padding: 2% 4%;
   }
-`;
-const RightContainer = styled.div`
-  width: 100%;
-  height: 101vh;
-  overflow: hidden;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  @media (max-width: 600px) {
-    height: 70vh;
-  }
-  @media (max-width: 550px) {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 0;
-    height: 100vh;
-  }
-  @media (max-width: 400px) {
-    height: 80vh;
-  }
-    @media(max-width: 350px){
-    height:60vh;
-    }
-`;
-const RightImg = styled.img`
-  width: 100%;
-  height: 101vh;
-  @media (max-width: 600px) {
-    height: 100vh;
-  }
-  @media (max-width: 400px) {
-    height: 80vh;
-  }
-    @media(max-width: 350px){
-    height:70vh;
-    }
 `;
 function FasionBetter() {
   return (
