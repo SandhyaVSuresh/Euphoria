@@ -40,6 +40,9 @@ const NewCardDiv = styled.div`
   margin: 2%;
   text-align: center;
   height: 70vh;
+  &:hover{
+  transform: scale(1.05);
+  }
   @media (max-width: 700px) {
     height: 70vh;
   }

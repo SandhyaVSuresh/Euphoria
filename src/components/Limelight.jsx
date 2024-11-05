@@ -44,6 +44,9 @@ const NewCardDiv = styled.div`
   position: relative;
   padding-top: 3%;
   width: 250px;
+  &:hover{
+  transform: scale(1.05);
+  }
   @media (max-width: 768px) {
     width: 45%; 
     padding-top: 10px;
