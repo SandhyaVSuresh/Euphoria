@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const Container = styled.div`
-  padding: 3% 7%;
+  padding: 3% 5%;
   margin-bottom: 50px;
 `;
 const NewHeadDiv = styled.div`
@@ -18,7 +18,7 @@ const NewHeadDiv = styled.div`
 const SideLineDiv = styled.div`
   border-radius: 5px;
   background: rgba(138, 51, 253, 1);
-  width: 5px;
+  width: 6px;
   height: 35px;
 `;
 const NewTitleH2 = styled.h2`
@@ -33,6 +33,9 @@ const NewBodyDiv = styled.div`
 const NewCardsDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
+  // align-items:center;
+  width:100%;
+  margin:auto;
   justify-content: space-around;
   gap: 2rem;
   @media (max-width: 768px) {
