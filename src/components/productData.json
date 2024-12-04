@@ -619,32 +619,6 @@
         "Sleeves": "Full Sleeves",
         "style":"Casule Wear"
       }
-    },
-    {
-      "id": 27,
-      "heading": "Similar Products",
-      "img": "img-16.jpg",
-      "breadcrumb": "Shop > Women > Top",
-      "thumbnailImgs": ["img-16.jpg","img-17.jpg", "img-14.jpg"],
-      "title": "Urban Jacket",
-      "ratings": 4.5,
-      "price": "$79.00",
-      "gender": "Men",
-      "brand": "Sagar's Brand",
-      "totalReviews": 120,
-      "rating": 4,
-      "ratingStarImg": ["star.png", "star-unfill.png", "half-star.png"],
-      "sizes": ["S", "M", "L", "XL"],
-      "colors": ["Black", "Gray", "Pink", "Blue"],
-      "description": "100% bio-washed cotton — makes this fabric extra soft & airy. Flexible ribbed crew neck offers breathable comfort. Available in vibrant colors & prints. Perfect for any occasion. Amazing durability.",
-      "features": {
-        "Fabric": "Bio-washed Cotton",
-        "Pattern": "Printed",
-        "Fit": "Regular Fit",
-        "Neck": "Round Neck",
-        "Sleeves": "Full Sleeves",
-        "style":"Casule Wear"
-      }
     }
   ]
   
