@@ -122,7 +122,6 @@ const Rightimg = styled.img`
 const MenuIcon = styled.img`
   display: none;
   width: 5px;
-  // margin-right:5px;
   cursor: pointer;
   @media (max-width: 700px) {
     display: block;
@@ -153,13 +152,13 @@ function Navbar() {
         <SearchImg src={search} alt="search" />
       </SearchDiv>
       <RightDiv>
-        <RightLink to="/wishlist" aria-label="Wishlist">
+        <RightLink to="/" aria-label="Wishlist">
           <Rightimg src={WishList} alt="Wishlist" />
         </RightLink>
-        <RightLink to="/account" aria-label="Account">
+        <RightLink to="/" aria-label="Account">
           <Rightimg src={account} alt="account" />
         </RightLink>
-        <RightLink to="/cart" aria-label="Cart">
+        <RightLink to="/" aria-label="Cart">
           <Rightimg src={cart} alt="cart" />
         </RightLink>
       </RightDiv>
