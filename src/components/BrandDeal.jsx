@@ -13,11 +13,10 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   text-align:center;
-  background: linear-gradient(500deg, #3c4242 50%, #002f4b 80%);
+  background: #3c4242;
   border-radius: 10px;
   @media (max-width: 700px) {
     padding: 5% 0%;
-    // margin: 3% 0%;
   }
 `;
 const Headh1 = styled.h1`

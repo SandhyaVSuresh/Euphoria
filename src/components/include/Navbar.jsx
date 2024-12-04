@@ -10,17 +10,18 @@ import { useState } from "react";
 
 const NavbarDiv = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 1% 4% 1% 0;
-  position: relative;
-  @media (max-width: 900px) {
-    padding: 1% 2%;
-  }
+  width:100%;
+  padding: 1% 0;
+  position: sticky;
+  z-index: 10; 
+  top: 0;
+  background-color: #fff;
 `;
-
+const HomeLink = styled(Link)``;
 const Logoimg = styled.img`
-pddding-left:10px;
+pddding-left:1rem;
   width: 100px;
   @media(max-width:400px){
   width:70px;
@@ -36,8 +37,8 @@ const NavUl = styled.nav`
     display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
     position: absolute;
     width: 250px;
-    height: 50vh;
-    top: 50px;
+    gap:2rem;
+    top: 58px;
     right: 0;
     flex-direction: column;
     background-color: #fff;
@@ -137,7 +138,9 @@ function Navbar() {
 
   return (
     <NavbarDiv>
+      <HomeLink to={'/'} >
       <Logoimg src={Logo} alt="Logo" />
+      </HomeLink>
       <NavUl isOpen={menuOpen}>
         <NavList to="/">Shop</NavList>
         <NavList to="/men">Men</NavList>

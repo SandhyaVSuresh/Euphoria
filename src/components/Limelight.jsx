@@ -1,11 +1,9 @@
 import styled from "styled-components";
-import img1 from "../assets/img-16.jpg";
-import img2 from "../assets/img-17.jpg";
-import img3 from "../assets/img-18.jpg";
-import img4 from "../assets/img-19.jpg";
 import wishlist from "../assets/heart.svg";
 import redWishlist from "../assets/red-heart-icon.svg";
 import { useState } from "react";
+import data from "./productData.json"
+import {useNavigate} from "react-router-dom"
 
 const Container = styled.div`
   padding: 3% 7%;
@@ -115,22 +113,20 @@ const Pricep = styled.p`
   }
 `;
 
-const items = [
-  { src: img1, title: "Black Sweetshirt", price: "$100", brand: "Hhanvi's Brand" },
-  { src: img2, title: "Line Pattern", price: "$150", brand: "AS's Brand" },
-  { src: img3, title: "Black Shorts", price: "$550", brand: "MM's Brand" },
-  { src: img4, title: "Lavender Hoodie", price: "$375", brand: "Nike's Brand" },
-];
-
 function Limelight() {
-  // State to track the clicked status for each item
+    const limelight = data.filter(item => item.heading === "In The Limelight")
+    const navigate = useNavigate();
+    const getImage = (imgName) => {
+        return new URL(`../assets/${imgName}`,import.meta.url).href;
+    };
   const [clickedItems, setClickedItems] = useState({});
-
-  // Toggle heart click per item
+  const handleCardClick=(id)=>{
+    navigate(`/Product/${id}`);
+  } 
   const toggleHeart = (index) => {
     setClickedItems((prev) => ({
       ...prev,
-      [index]: !prev[index], // Toggle the specific item clicked state
+      [index]: !prev[index],
     }));
   };
 
@@ -142,12 +138,12 @@ function Limelight() {
       </NewHeadDiv>
       <NewBodyDiv>
         <NewCardsDiv>
-          {items.map((item, index) => (
-            <NewCardDiv key={index}>
-              <CardImg src={item.src} alt={item.title} />
+          {limelight.map((item, index) => (
+            <NewCardDiv key={item.id} onClick={()=>handleCardClick(item.id)}>
+              <CardImg src={getImage(item.img)} alt={item.title} />
               <HeartImg
-                src={clickedItems[index] ? redWishlist : wishlist} // Change heart image based on clicked state
-                onClick={() => toggleHeart(index)} // Pass index to toggle the correct heart
+                src={clickedItems[index] ? redWishlist : wishlist} 
+                onClick={() => toggleHeart(index)}
                 alt="wishlist icon"
               />
               <NewCardTextDiv>

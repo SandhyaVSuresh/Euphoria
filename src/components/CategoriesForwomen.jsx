@@ -1,10 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import arrowRight from "../assets/ExploreArrow.png";
-import img1 from "../assets/img-12.jpg";
-import img2 from "../assets/img-13.jpg";
-import img3 from "../assets/img-14.jpg";
-import img4 from "../assets/img-15.jpg";
+import data from "./productData.json"
+import {useNavigate} from "react-router-dom";
 
 const Container = styled.div`
   padding: 3% 7%;
@@ -96,14 +94,15 @@ const ArrowRightImg = styled.img`
   height: 4%;
 `;
 
-const items = [
-  {src:img1, title:"Hoodies & Sweetshirts"},
-  {src:img2, title:"Coat & Parkas"},
-  {src:img3, title:"Tees & T-Shirt"},
-  {src:img4, title:"Boxers"},
-];
-
 function CategoriesForwomen() {
+    const categoriesForWomen = data.filter(item => item.heading === "Categories for Women")
+    const navigate =useNavigate();
+    const getImage = (imgName) => {
+        return new URL(`../assets/${imgName}`,import.meta.url).href;
+    };
+    const handleCardClick =(id) =>{
+      navigate(`/Product/${id}`)
+    }
   return (
     <Container>
       <NewHeadDiv>
@@ -112,9 +111,9 @@ function CategoriesForwomen() {
       </NewHeadDiv>
       <NewBodyDiv>
         <NewCardsDiv>
-          {items.map((item, index) => (
-            <NewCardDiv key={index}>
-              <CardImg src={item.src} />
+          {categoriesForWomen.map((item) => (
+            <NewCardDiv key={item.id} onClick={()=>handleCardClick(item.id)}>
+              <CardImg src={getImage(item.img)} />
               <CardTitleH3>{item.title}</CardTitleH3>
               <NewCardLinkDiv>
                 <CardLink to="/">Explore Now</CardLink>

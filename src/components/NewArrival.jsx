@@ -1,10 +1,8 @@
 import styled from "styled-components";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import image1 from "../assets/img-1.jpg";
-import image2 from "../assets/img-2.jpg";
-import image3 from "../assets/img-3.jpg";
-import image4 from "../assets/img-4.jpg";
+import data from "./productData.json";
+import {useNavigate} from "react-router-dom";
 
 const Container = styled.div`
   padding: 3% 7%;
@@ -74,14 +72,6 @@ const CardTitleH3 = styled.h3`
   font-size: 1rem;
 `;
 
-const items = [
-  { src: image1, title: "Knitted Joggers" },
-  { src: image2, title: "Urban Shirts" },
-  { src: image3, title: "Full Sleeve" },
-  { src: image4, title: "Active T-Shirts" },
-];
-
-// Carousel responsive settings
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 1024 },
@@ -102,25 +92,28 @@ const responsive = {
 };
 
 function NewArrival() {
+    const newArrivalItems = data.filter(item => item.heading === "New Arrival");
+    const navigate = useNavigate();
+    const getImage = (imgName) => {
+        return new URL(`../assets/${imgName}`, import.meta.url).href;
+      };
+      const handleCardClick=(id) =>{
+        navigate(`/product/${id}`);
+      }
   return (
     <Container>
       <NewHeadDiv>
         <SideLineDiv></SideLineDiv>
         <NewTitleH2>New Arrival</NewTitleH2>
       </NewHeadDiv>
-      <Carousel
-        showDots={true}
-        responsive={responsive}
-        infinite={true}
-        autoPlay={true}
-      >
-        {items.map((item, index) => (
-          <NewCardDiv key={index}>
-            <CardImg src={item.src} alt={item.title} />
-            <CardTitleH3>{item.title}</CardTitleH3>
-          </NewCardDiv>
-        ))}
-      </Carousel>
+      <Carousel showDots={true} responsive={responsive} infinite={true} autoPlay={true}>
+  {newArrivalItems.map((item) => (
+    <NewCardDiv key={item.id} onClick={()=>handleCardClick(item.id)}>
+      <CardImg src={getImage(item.img)} alt={item.title} />
+      <CardTitleH3>{item.title}</CardTitleH3>
+    </NewCardDiv>
+  ))}
+</Carousel>
     </Container>
   );
 }

@@ -1,66 +1,47 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import img1 from "../../assets/facebook.svg";
 import img2 from "../../assets/instagram.svg";
 import img3 from "../../assets/twitter.svg";
 import img4 from "../../assets/linkedin.svg";
 import img5 from "../../assets/Group.png";
 import img6 from "../../assets/PlayStoreImage.svg";
-
-const waveAnimationSmall = keyframes`
-  0% {
-    background-position-y: 0;
-  }
-  100% {
-    background-position-y: 750px; 
-  }
-`;
-
-const waveAnimationMedium = keyframes`
-  0% {
-    background-position-y: 0;
-  }
-  100% {
-    background-position-y: 580px; 
-  }
-`;
-
-const waveAnimationLarge = keyframes`
-  0% {
-    background-position-y: 0;
-  }
-  100% {
-    background-position-y: 450px; 
-  }
-`;
-
+import {Link} from "react-router-dom"
+import {useState} from "react"
 
 const Container = styled.div`
-  background: linear-gradient(400deg, #3c4242 10%, #002f4b 80%);
+  background-color: #3c4242;
   padding: 3% 7%;
   color: #fff;
-  background-size: 150% 100%;
-    animation: ${waveAnimationMedium} 3s ease-in-out infinite;
-
-  @media (max-width: 400px) {
-    animation: ${waveAnimationSmall} 3s ease-in-out infinite;
-  }
-
-  @media (min-width: 768px) {
-    animation: ${waveAnimationLarge} 3s ease-in-out infinite;
-  }
 `;
 const TopDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
+  gap:.5rem;
   justify-content: space-around;
+  @media (max-width: 500px) {
+    gap: 0;
+    flex-direction: column;
+  text-align:center;
+
+  }
+`;
+const TopConDiv = styled.div`
+display:flex;
+flex-direction:column;
+display:block;
 `;
 const TopUl = styled.ul`
   list-style: none;
+  display:block;
+  @media (max-width: 500px) {
+    display: ${(props) => (props.visible ? "block" : "none")};
+  }
 `;
 const HeadingH5 = styled.h5`
   font-size: 1.3rem;
   font-weight: 500;
   padding-bottom: 20px;
+  cursor:pointer;
 `;
 const List = styled.li`
   font-size: 0.8rem;
@@ -144,38 +125,61 @@ const Textp = styled.p`
   }
 `;
 const AppNamep = styled.span`
-  font-size: 1.2rem @media (max-width: 400px) {
+  font-size: 1.2rem 
+  @media (max-width: 400px) {
     font-size: 0.9rem;
   }
 `;
 function Footer() {
+  const [visibleSections, setVisibleSections] = useState({
+    help: false,
+    company: false,
+    info: false,
+    location: false,
+  });
+  
+  const toggleSection = (section) => {
+    setVisibleSections((prev)=>({
+    ...prev,
+    [section]: !prev[section],
+  }));
+  };
   return (
     <Container>
       <TopDiv>
-        <TopUl className="hide">
-          <HeadingH5>Need Help</HeadingH5>
+        <TopConDiv>
+      <HeadingH5 onClick={() => toggleSection("help")}>Need Help</HeadingH5>
+        <TopUl visible={visibleSections.help}>
+          
           <List>Contact Us</List>
           <List>Track Order</List>
           <List>Returns & Refunds</List>
           <List>FAQ&apos;s</List>
           <List>Career</List>
         </TopUl>
-        <TopUl className="hide">
-          <HeadingH5>Company</HeadingH5>
+        </TopConDiv>
+        <TopConDiv>
+        <HeadingH5 onClick={() => toggleSection("company")}>Company</HeadingH5>
+        <TopUl visible={visibleSections.company}>
+          
           <List>About Us</List>
           <List>Euphoria Blog</List>
           <List>Euphoriastan</List>
           <List>Collaboration</List>
           <List>Media</List>
         </TopUl>
-        <TopUl className="hide">
-          <HeadingH5>More Info</HeadingH5>
-          <List>Term and Conditions</List>
+        </TopConDiv>
+        <TopConDiv>
+        <HeadingH5 onClick={() => toggleSection("info")}>More Info</HeadingH5>
+        <TopUl visible={visibleSections.info}>
+          
+          <List>Terms and Conditions</List>
           <List>Privacy Policy</List>
           <List>Shipping Policy</List>
           <List>Sitemap</List>
         </TopUl>
-        <TopUl>
+        </TopConDiv>
+        <TopUl visible={true}> {/* Always visible */}
           <HeadingH5>Location</HeadingH5>
           <List>support@euphoria.in</List>
           <List>Eklingpura Chouraha, Ahmedabad Main Road</List>
@@ -185,10 +189,10 @@ function Footer() {
       <BottomDiv>
         <BottomTop>
           <BottomLeftDiv>
-            <SocialImg src={img1} />
-            <SocialImg src={img2} />
-            <SocialImg src={img3} />
-            <SocialImg src={img4} />
+            <Link to="https://www.facebook.com/"><SocialImg src={img1} /></Link>
+            <Link to="https://www.instagram.com/?hl=en"><SocialImg src={img2} /></Link>
+            <Link to="https://x.com/?lang=en"><SocialImg src={img3} /></Link>
+            <Link to="https://in.linkedin.com/"><SocialImg src={img4} /></Link>
           </BottomLeftDiv>
           <BottomRightDiv>
             <Apph4>Download The App </Apph4>

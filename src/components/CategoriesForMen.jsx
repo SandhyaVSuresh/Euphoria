@@ -1,14 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import arrowRight from "../assets/ExploreArrow.png";
-import img1 from "../assets/img-5.jpg";
-import img2 from "../assets/img-6.jpg";
-import img3 from "../assets/img-7.jpg";
-import img4 from "../assets/img-8.jpg";
-import img5 from "../assets/img-9.jpg";
-import img6 from "../assets/img-1.jpg";
-import img7 from "../assets/img-10.jpg";
-import img8 from "../assets/img-11.jpg";
+import data from "./productData.json"
+import {useNavigate} from "react-router-dom";
 
 const Container = styled.div`
   padding: 3% 7%;
@@ -102,18 +96,15 @@ const ArrowRightImg = styled.img`
   height: 4%;
 `;
 
-const items = [
-  { src: img1, title: "Shirts" },
-  { src: img2, title: "Printed T-Shirt" },
-  { src: img3, title: "Plain T-Shirt" },
-  { src: img4, title: "Polo T-Shirt" },
-  { src: img5, title: "Hoodies & Sweatshirt" },
-  { src: img6, title: "jeans" },
-  { src: img7, title: "Activewear" },
-  { src: img8, title: "Boxers" },
-];
-
 function CategoriesForMen() {
+    const categoriesForMen = data.filter(item => item.heading === "Categories for Men")
+    const navigate = useNavigate();
+    const getImage = (imgName) => {
+        return new URL(`../assets/${imgName}`,import.meta.url).href;
+    };
+    const handleCardClick =(id) =>{
+      navigate(`/Product/${id}`)
+    }
   return (
     <Container>
       <NewHeadDiv>
@@ -122,9 +113,9 @@ function CategoriesForMen() {
       </NewHeadDiv>
       <NewBodyDiv>
         <NewCardsDiv>
-          {items.map((item, index) => (
-            <NewCardDiv key={index}>
-              <CardImg src={item.src} />
+          {categoriesForMen.map((item) => (
+            <NewCardDiv key={item.id} onClick={()=>handleCardClick(item.id)}>
+              <CardImg src={getImage(item.img)} />
               <CardTitleH3>{item.title}</CardTitleH3>
               <NewCardLinkDiv>
                 <CardLink to="/">Explore Now</CardLink>

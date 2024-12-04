@@ -1,11 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
-import img1 from "../assets/span-1.svg";
-import img2 from "../assets/span-2.svg";
-import img3 from "../assets/span-3.svg";
-import star from "../assets/star.svg";
-import PropTypes from "prop-types";
+import data from "./productData.json"; // Import the JSON data
 
+import PropTypes from "prop-types";
 const Container = styled.div`
   padding: 3% 7%;
   margin-top: 30px;
@@ -59,7 +56,9 @@ const FeedbackHeadDiv = styled.div`
 
 const ProfileImg = styled.img``;
 const RateingDiv = styled.div``;
-const RatingImg = styled.img``;
+const RatingImg = styled.img`
+width:15px;
+`;
 const FeedbackBodyDiv = styled.div``;
 const Headh4 = styled.h4`
   color: #3c4242;
@@ -97,6 +96,34 @@ function FeedbackText({ text }) {
 }
 
 function Feedback() {
+  const feedbackdata = data.filter((item) => item.heading === "Feedback");
+
+  const getImage = (imgName) => {
+    return new URL(`../assets/${imgName}`, import.meta.url).href;
+  };
+  const renderStars = (rating, starImages) => {
+    const stars = [];
+    const [fullStar, unfilledStar, halfStar] = starImages; // Destructure the star images
+
+    for (let i = 1; i <= 5; i++) {
+      if (rating >= i) {
+        // Full star
+        stars.push(<RatingImg key={i} src={getImage(fullStar)} alt="star" />);
+      } else if (rating >= i - 0.5) {
+        // Half star
+        stars.push(
+          <RatingImg key={i} src={getImage(halfStar)} alt="half-star" />
+        );
+      } else {
+        // Unfilled star
+        stars.push(
+          <RatingImg key={i} src={getImage(unfilledStar)} alt="unfilled-star" />
+        );
+      }
+    }
+    return stars;
+  };
+
   return (
     <Container>
       <NewHeadDiv>
@@ -104,59 +131,28 @@ function Feedback() {
         <NewTitleH2>Feedback</NewTitleH2>
       </NewHeadDiv>
       <NewBodyDiv>
-        <FeedbackDiv>
-          <FeedbackHeadDiv>
-            <ProfileImg src={img1} />
-            <RateingDiv>
-              <RatingImg src={star} />
-              <RatingImg src={star} />
-              <RatingImg src={star} />
-              <RatingImg src={star} />
-              <RatingImg src={star} />
-            </RateingDiv>
-          </FeedbackHeadDiv>
-          <FeedbackBodyDiv>
-            <Headh4>Floyd Miles</Headh4>
-            <FeedbackText text="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet." />
-          </FeedbackBodyDiv>
-        </FeedbackDiv>
-        <FeedbackDiv>
-          <FeedbackHeadDiv>
-            <ProfileImg src={img2} />
-            <RateingDiv>
-              <RatingImg src={star} />
-              <RatingImg src={star} />
-              <RatingImg src={star} />
-              <RatingImg src={star} />
-              <RatingImg src={star} />
-            </RateingDiv>
-          </FeedbackHeadDiv>
-          <FeedbackBodyDiv>
-            <Headh4>Ronald Richards</Headh4>
-            <FeedbackText text="Ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet." />
-          </FeedbackBodyDiv>
-        </FeedbackDiv>
-        <FeedbackDiv>
-          <FeedbackHeadDiv>
-            <ProfileImg src={img3} />
-            <RateingDiv>
-              <RatingImg src={star} />
-              <RatingImg src={star} />
-              <RatingImg src={star} />
-              <RatingImg src={star} />
-              <RatingImg src={star} />
-            </RateingDiv>
-          </FeedbackHeadDiv>
-          <FeedbackBodyDiv>
-            <Headh4>Savannah Nguyen</Headh4>
-            <FeedbackText text="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet." />
-          </FeedbackBodyDiv>
-        </FeedbackDiv>
+        {feedbackdata.map((feedback) => (
+          <FeedbackDiv key={feedback.id}>
+            <FeedbackHeadDiv>
+              <ProfileImg src={getImage(feedback.img)} alt={feedback.name} />
+              <RateingDiv>
+                {renderStars(feedback.rating, feedback.ratingStarImg)}
+              </RateingDiv>
+            </FeedbackHeadDiv>
+            <FeedbackBodyDiv>
+              <Headh4>{feedback.name}</Headh4>
+              <FeedbackText text={feedback.msg} />
+            </FeedbackBodyDiv>
+          </FeedbackDiv>
+        ))}
       </NewBodyDiv>
     </Container>
   );
 }
-Feedback.protoTypes = {
+FeedbackText.propTypes = {
   text: PropTypes.string,
+};
+FeedbackText.defaultProps = {
+  text: "",
 };
 export default Feedback;
