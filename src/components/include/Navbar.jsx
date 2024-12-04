@@ -15,7 +15,7 @@ const NavbarDiv = styled.div`
   width:100%;
   padding: 1% 0;
   position: sticky;
-  z-index: 10; 
+  z-index: 2000; 
   top: 0;
   background-color: #fff;
 `;
