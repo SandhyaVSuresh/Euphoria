@@ -21,7 +21,7 @@ const NavbarDiv = styled.div`
 `;
 const HomeLink = styled(Link)``;
 const Logoimg = styled.img`
-pddding-left:1rem;
+// pddding-left:1rem;
   width: 100px;
   @media(max-width:400px){
   width:70px;
@@ -94,6 +94,7 @@ const RightDiv = styled.div`
   display: flex;
   align-items: center;
   gap: .5rem;
+  margin-right: 1rem;
   @media (max-width: 1100px) {
     gap: 0;
   }

@@ -7,7 +7,7 @@ import FreeShipping from "../assets/FreeShipping.svg";
 import Truck from "../assets/truckIcon.svg";
 import SizeFit from "../assets/SizeFit.svg";
 import RightArrow from "../assets/arrow-right.svg";
-import { useState, useEffect,useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "./include/Navbar";
 import Footer from "./include/Footer";
@@ -26,7 +26,6 @@ const Wrapper = styled.div`
 const Breadcrumb = styled.p`
   font-size: 0.9rem;
   color: #6c757d;
-  margin-bottom: 10px;
 `;
 
 const MainContainer = styled.div`
@@ -35,6 +34,7 @@ const MainContainer = styled.div`
   width: 100%;
   gap: 10rem;
   height: auto;
+  margin:auto
   @media (max-width: 900px) {
     grid-template-columns: 1fr 1fr;
     gap: 9rem;
@@ -49,7 +49,7 @@ const ImageSection = styled.div`
   display: flex;
   gap: 1rem;
   background-color: #f6f6f6;
-  padding-left: 7rem;
+  padding-left: 5rem;
   width: 80%;
   @media (max-width: 900px) {
     padding-left: 1rem;
@@ -69,10 +69,11 @@ const MainImage = styled.img`
   height: 100%;
   margin-bottom: 15px;
   @media (max-width: 768px) {
+  padding-top:10px;
     width: 100%;
     max-height: 300px;
     object-fit: contain;
-    order:1;
+    order: 1;
   }
 `;
 
@@ -82,9 +83,10 @@ const ThumbnailContainer = styled.div`
   flex-direction: column;
   gap: 10px;
   @media (max-width: 768px) {
-  order:2;
+    order: 2;
     flex-direction: row;
     justify-content: center;
+    padding-bottom:10px;
   }
 `;
 
@@ -116,10 +118,9 @@ const InfoSection = styled.div`
   }
   @media (max-width: 768px) {
     width: 100%;
-  flex-direction: column;
-  // gap: 2rem;
-    align-items:center;
-    flex-wrap:wrap;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
   }
 `;
 
@@ -156,7 +157,6 @@ const SizeLink = styled.a`
   color: gray;
   margin-left: 30px;
   font-weight: 500;
-  // padding: 0 10px;
   font-size: 0.9rem;
   cursor: pointer;
   text-decoration: none;
@@ -169,9 +169,10 @@ const SizeButton = styled.button`
   margin: 5px 10px 5px 0;
   padding: 10px 20px;
   border: none;
-  background-color: #f0f0f0;
   cursor: pointer;
   border-radius: 5px;
+  color: ${(props) => (props.$isSelected ? "#fff" : "")};
+  background-color: ${(props) => (props.$isSelected ? "#3C4242" : "#f0f0f0")};
   &:hover {
     background-color: #ddd;
   }
@@ -198,7 +199,7 @@ const Description = styled.div`
   width: 90%;
   @media (max-width: 900px) {
     margin-top: 20px;
-    padding:1rem;
+    padding: 1rem;
     width: 90%;
   }
 `;
@@ -209,8 +210,8 @@ const DescriptionHeading = styled.h2`
 const DescriptionText = styled.p`
   font-size: 1rem;
   color: #6c757d;
-  @media(max-width:500px){
-  font-size:.8rem;
+  @media (max-width: 500px) {
+    font-size: 0.8rem;
   }
 `;
 const FeaturesList = styled.div`
@@ -244,9 +245,6 @@ const FeatureItem = styled.div`
   color: #333;
   gap: 0.7rem;
 
-  strong {
-    font-weight: 600;
-  }
 `;
 const FearureHead = styled.p`
   font-size: 0.8rem;
@@ -280,26 +278,34 @@ const RateingDiv = styled.div`
 const ColorsContainer = styled.div`
   margin: 15px 0;
 `;
+const ColorsDiv = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+const ColorDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: ${(props) => (props.$isSelected ? "1px solid #ddd" : "none")};
+`;
 const ColorSpan = styled.div`
   display: inline-block;
-  margin: 10px 20px 0 0;
   border-radius: 50%;
   background-color: ${(props) => props.color};
   width: 20px;
   height: 20px;
   cursor: pointer;
-  border: ${(props) =>
-    props.$isSelected ? "1px solid #000" : "1px solid #ddd"};
-  box-shadow: ${(props) =>
-    props.$isSelected ? "0 0 5px rgba(0, 0, 0, 0.3)" : "none"};
-  &:hover {
-    border: 2px solid ${(props) => props.color};
-  }
 `;
 const InfoBottom = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  @media (max-width: 525px) {
+    margin:5%;
+  }
 `;
 const ContentDiv = styled.div`
   display: flex;
@@ -327,7 +333,7 @@ const LeftHead = styled.div`
 const HeadButton = styled.button`
   background: none;
   border: none;
-  display:flex;
+  display: flex;
   cursor: pointer;
   font-size: 1rem;
   padding: 10px 0;
@@ -353,12 +359,12 @@ const HeadButton = styled.button`
       props.$isSelected ? "#000" : "transparent"};
     transition: background-color 0.3s;
   }
-    @media(max-width:450px){
+  @media (max-width: 450px) {
     font-size: 0.8rem;
-    }
-    @media(max-width:363px){
+  }
+  @media (max-width: 363px) {
     font-size: 0.7rem;
-    }
+  }
 `;
 const UCountSpan = styled.span`
   background-color: #8a33fc;
@@ -367,10 +373,10 @@ const UCountSpan = styled.span`
   color: white;
   padding: 3px 4px;
   border-radius: 2px;
-  display:block;
-  width:fit-content;
+  display: block;
+  width: fit-content;
   @media (max-width: 538px) {
-    display:none;
+    display: none;
   }
 `;
 const QCountSpan = styled.span`
@@ -380,10 +386,10 @@ const QCountSpan = styled.span`
   color: white;
   padding: 3px 4px;
   border-radius: 2px;
-  display:block;
-  width:fit-content;
+  display: block;
+  width: fit-content;
   @media (max-width: 538px) {
-    display:none;
+    display: none;
   }
 `;
 const DiscriptionHead = styled.div`
@@ -415,9 +421,8 @@ const ProductPage = () => {
   const [selectedColor, setSelectedColor] = useState(null);
   const [activeTab, setActiveTab] = useState(1);
   const [selectedImage, setSelectedImage] = useState(selectedProduct.img);
+  const [selectedSize, setSelectedSize] = useState(null);
 
-  
-  
   const getImage = (imgName) => {
     return new URL(`../assets/${imgName}`, import.meta.url).href;
   };
@@ -425,9 +430,10 @@ const ProductPage = () => {
     if (selectedProduct) {
       setSelectedImage(selectedProduct.img);
       setSelectedColor(null);
+      setSelectedSize(null);
       setActiveTab(1);
     }
-    topContainer.current.scrollIntoView({ block: "start", behavior: 'smooth' });
+    topContainer.current.scrollIntoView({ block: "start", behavior: "smooth" });
   }, [selectedProduct]);
   const renderStars = (rating, starImages) => {
     const stars = [];
@@ -456,8 +462,8 @@ const ProductPage = () => {
   };
   return (
     <>
-    <div ref={topContainer} ></div>
-      <Navbar/>
+      <div ref={topContainer}></div>
+      <Navbar />
       <Wrapper>
         <MainContainer>
           <ImageSection>
@@ -501,19 +507,25 @@ const ProductPage = () => {
                 </SizeLink>
               </TextSize>
               {selectedProduct.sizes.map((size) => (
-                <SizeButton key={size}>{size}</SizeButton>
+                <SizeButton 
+                key={size}
+                    $isSelected={selectedSize === size}
+                    onClick={() => setSelectedSize(size)}>{size}</SizeButton>
               ))}
             </SizesContainer>
             <ColorsContainer>
               <h3>Colors Available:</h3>
-              {selectedProduct.colors.map((color) => (
-                <ColorSpan
-                  key={color}
-                  color={color}
-                  $isSelected={selectedColor === color}
-                  onClick={() => setSelectedColor(color)}
-                />
-              ))}
+              <ColorsDiv>
+                {selectedProduct.colors.map((color) => (
+                  <ColorDiv
+                    key={color}
+                    $isSelected={selectedColor === color}
+                    onClick={() => setSelectedColor(color)}
+                  >
+                    <ColorSpan color={color} />
+                  </ColorDiv>
+                ))}
+              </ColorsDiv>
             </ColorsContainer>
             <SmallGroup>
               <Button>
@@ -640,7 +652,7 @@ const ProductPage = () => {
           </DiscriptionContent>
         </Description>
       </Wrapper>
-      <SimilarProducts currentProductId={selectedProduct.id}/>
+      <SimilarProducts currentProductId={selectedProduct.id} />
       <Footer />
     </>
   );

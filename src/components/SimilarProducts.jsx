@@ -28,6 +28,7 @@ const NewTitleH2 = styled.h2`
 const NewBodyDiv = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom:50px;
 `;
 
 const NewCardsDiv = styled.div`
@@ -36,6 +37,7 @@ const NewCardsDiv = styled.div`
   // align-items:center;
   width:100%;
   margin:auto;
+    height: fit-content;
   justify-content: space-around;
   gap: 2rem;
   @media (max-width: 768px) {
@@ -46,16 +48,17 @@ const NewCardDiv = styled.div`
   position: relative;
   padding-top: 3%;
   width: 250px;
+  height: auto;
   &:hover {
     transform: scale(1.05);
   }
   @media (max-width: 768px) {
     width: 35%;
-    height: 40%;
+    height: auto;
     padding-top: 10px;
     margin:0 1.5rem;
   }
-  @media (max-width: 450px) {
+  @media (max-width: 441px) {
     width: 100%;
     height: fit-content;
     padding-top: 10px;
