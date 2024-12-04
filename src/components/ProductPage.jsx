@@ -34,8 +34,7 @@ const MainContainer = styled.div`
   width: 100%;
   gap: 10rem;
   height: auto;
-  margin:auto
-  @media (max-width: 900px) {
+  margin:auto @media (max-width: 900px) {
     grid-template-columns: 1fr 1fr;
     gap: 9rem;
   }
@@ -69,7 +68,7 @@ const MainImage = styled.img`
   height: 100%;
   margin-bottom: 15px;
   @media (max-width: 768px) {
-  padding-top:10px;
+    padding-top: 10px;
     width: 100%;
     max-height: 300px;
     object-fit: contain;
@@ -86,17 +85,24 @@ const ThumbnailContainer = styled.div`
     order: 2;
     flex-direction: row;
     justify-content: center;
-    padding-bottom:10px;
+    padding-bottom: 10px;
   }
 `;
-
+const ThumbnailDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  width: 62px;
+  height: 62px;
+  border: ${(props) => (props.$isSelected ? "0.76px solid #3C4242" : "none")};
+`;
 const Thumbnail = styled.img`
   width: 60px;
   height: 60px;
   border: 2px solid transparent;
   border-radius: 5px;
   cursor: pointer;
-  border: ${(props) => (props.$isSelected ? "2px solid blue" : "none")};
 
   &:hover {
     border-color: 1px solid #000;
@@ -244,7 +250,6 @@ const FeatureItem = styled.div`
   padding: 1rem 1.2rem;
   color: #333;
   gap: 0.7rem;
-
 `;
 const FearureHead = styled.p`
   font-size: 0.8rem;
@@ -304,7 +309,7 @@ const InfoBottom = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   @media (max-width: 525px) {
-    margin:5%;
+    margin: 5%;
   }
 `;
 const ContentDiv = styled.div`
@@ -469,13 +474,16 @@ const ProductPage = () => {
           <ImageSection>
             <ThumbnailContainer>
               {selectedProduct.thumbnailImgs?.map((img, index) => (
-                <Thumbnail
+                <ThumbnailDiv
                   key={index}
-                  src={getImage(img)}
-                  alt={`Thumbnail ${index + 1}`}
                   onClick={() => handleThumbnailClick(img)}
                   $isSelected={selectedImage === img}
-                />
+                >
+                  <Thumbnail
+                    src={getImage(img)}
+                    alt={`Thumbnail ${index + 1}`}
+                  />
+                </ThumbnailDiv>
               ))}
             </ThumbnailContainer>
             <MainImage
@@ -507,10 +515,13 @@ const ProductPage = () => {
                 </SizeLink>
               </TextSize>
               {selectedProduct.sizes.map((size) => (
-                <SizeButton 
-                key={size}
-                    $isSelected={selectedSize === size}
-                    onClick={() => setSelectedSize(size)}>{size}</SizeButton>
+                <SizeButton
+                  key={size}
+                  $isSelected={selectedSize === size}
+                  onClick={() => setSelectedSize(size)}
+                >
+                  {size}
+                </SizeButton>
               ))}
             </SizesContainer>
             <ColorsContainer>
