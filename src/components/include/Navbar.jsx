@@ -145,8 +145,8 @@ function Navbar() {
         <NavList to="/">Shop</NavList>
         <NavList to="/men">Men</NavList>
         <NavList to="/women">Women</NavList>
-        <NavList to="/combos">Combos</NavList>
-        <NavList to="/jogger">Jogger</NavList>
+        <NavList to="/">Combos</NavList>
+        <NavList to="/">Jogger</NavList>
       </NavUl>
       <SearchDiv>
         <SearchInput type="text" placeholder="Search" />

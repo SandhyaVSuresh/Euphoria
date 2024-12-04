@@ -283,14 +283,14 @@
     },
     {
       "id": 12,
-      "heading": "Categories for Men",
+      "heading": "Categories for Women",
       "img": "img-12.jpg",
       "breadcrumb": "Shop > Women > Top",
       "thumbnailImgs": ["img-12.jpg","img-19.jpg", "img-26.jpg"],
       "title": "Boxers",
       "ratings": 2.5,
       "price": "$18.00",
-      "gender": "Men",
+      "gender": "Women",
       "brand": "Roboto's Brand",
       "totalReviews": 397,
       "rating": 4,
@@ -551,7 +551,7 @@
       "title": "White T-Shirt",
       "ratings": 2.5,
       "price": "$13.00",
-      "gender": "Women",
+      "gender": "Men",
       "brand": "Priya's Brand",
       "totalReviews": 120,
       "rating": 4,
@@ -577,7 +577,7 @@
       "title": "Dark Green Sweatshirt",
       "ratings": 4.5,
       "price": "$127.00",
-      "gender": "Men",
+      "gender": "Women",
       "brand": "Roboto's Brand",
       "totalReviews": 140,
       "rating": 4,
@@ -619,6 +619,7 @@
         "Sleeves": "Full Sleeves",
         "style":"Casule Wear"
       }
+
     }
   ]
   
