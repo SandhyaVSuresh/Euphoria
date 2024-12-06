@@ -118,7 +118,7 @@ function Spotlight() {
         <SlideContainer key={index}>
           <SlideEffect style={{ backgroundImage: `url(${item.src})` }}>
             <SlideText>
-              <Slideh5>{item.heading}</Slideh5>
+              <Slideh5>{item.heading}</Slideh5>  
               <Slideh1>{item.mainHead}</Slideh1>
               <Slidep>{item.para}</Slidep>
               <Slidebutton>{item.button}</Slidebutton>

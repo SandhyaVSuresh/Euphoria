@@ -45,6 +45,10 @@ const NavUl = styled.nav`
     padding: 1rem;
     z-index: 1000;
   }
+    @media (max-width: 400px) {
+    top: 48px;
+    
+    }
 `;
 
 const NavList = styled(Link)`

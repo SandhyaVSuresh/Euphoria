@@ -7,7 +7,7 @@ import FreeShipping from "../assets/FreeShipping.svg";
 import Truck from "../assets/truckIcon.svg";
 import SizeFit from "../assets/SizeFit.svg";
 import RightArrow from "../assets/arrow-right.svg";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "./include/Navbar";
 import Footer from "./include/Footer";
@@ -421,7 +421,6 @@ const RightDiv = styled.div``;
 
 const ProductPage = () => {
   const { id } = useParams();
-  const topContainer = useRef();
   const selectedProduct = productData.find((item) => item.id === parseInt(id));
   const [selectedColor, setSelectedColor] = useState(null);
   const [activeTab, setActiveTab] = useState(1);
@@ -437,8 +436,8 @@ const ProductPage = () => {
       setSelectedColor(null);
       setSelectedSize(null);
       setActiveTab(1);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-    topContainer.current.scrollIntoView({ block: "start", behavior: "smooth" });
   }, [selectedProduct]);
   const renderStars = (rating, starImages) => {
     const stars = [];
@@ -467,7 +466,6 @@ const ProductPage = () => {
   };
   return (
     <>
-      <div ref={topContainer}></div>
       <Navbar />
       <Wrapper>
         <MainContainer>
